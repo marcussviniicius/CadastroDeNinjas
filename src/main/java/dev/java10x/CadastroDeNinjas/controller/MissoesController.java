@@ -5,6 +5,8 @@ import dev.java10x.CadastroDeNinjas.model.NinjaModel;
 import dev.java10x.CadastroDeNinjas.service.MissoesService;
 import dev.java10x.CadastroDeNinjas.service.NinjaService;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -19,6 +21,12 @@ public class MissoesController {
     @GetMapping
     public List<MissoesModel> getAll(){
         return missoesService.getAll();
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getById(@PathVariable Long id){
+        MissoesModel missao = missoesService.getById(id);
+        return ResponseEntity.ok(missao);
     }
 
     @PostMapping
