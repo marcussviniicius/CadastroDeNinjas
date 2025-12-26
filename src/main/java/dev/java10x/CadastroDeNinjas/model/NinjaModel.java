@@ -9,7 +9,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "tb_ninjas")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class NinjaModel {
 
     @Id
@@ -25,4 +24,11 @@ public class NinjaModel {
     @ManyToOne
     @JoinColumn(name = "missoes_id")
     private MissoesModel missoes;
+
+    public NinjaModel(String email, MissoesModel missoes, int idade, String nome) {
+        this.email = email;
+        this.missoes = missoes;
+        this.idade = idade;
+        this.nome = nome;
+    }
 }

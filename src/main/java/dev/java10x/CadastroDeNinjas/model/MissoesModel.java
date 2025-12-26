@@ -12,7 +12,6 @@ import java.util.List;
 @Table(name = "tb_missoes")
 @Data
 @NoArgsConstructor
-@AllArgsConstructor
 public class MissoesModel {
 
     @Id
@@ -26,4 +25,10 @@ public class MissoesModel {
     @OneToMany(mappedBy = "missoes")
     @JsonIgnore
     private List<NinjaModel> ninjas;
+
+    public MissoesModel(String nome, String dificuldade, List<NinjaModel> ninjas) {
+        this.nome = nome;
+        this.dificuldade = dificuldade;
+        this.ninjas = ninjas;
+    }
 }
