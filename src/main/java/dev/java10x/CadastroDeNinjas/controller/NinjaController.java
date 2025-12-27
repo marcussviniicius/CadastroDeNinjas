@@ -3,9 +3,6 @@ package dev.java10x.CadastroDeNinjas.controller;
 import dev.java10x.CadastroDeNinjas.model.NinjaModel;
 import dev.java10x.CadastroDeNinjas.service.NinjaService;
 import lombok.AllArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

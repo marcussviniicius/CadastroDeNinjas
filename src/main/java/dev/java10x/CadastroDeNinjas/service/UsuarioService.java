@@ -14,18 +14,22 @@ public class UsuarioService {
     private final UsuarioRepository usuarioRepository;
     private final PasswordEncoder passwordEncoder;
 
-    public UsuarioService(UsuarioRepository usuarioRepository){
+    public UsuarioService(
+            UsuarioRepository usuarioRepository,
+            PasswordEncoder passwordEncoder
+    ) {
         this.usuarioRepository = usuarioRepository;
-        this.passwordEncoder = new BCryptPasswordEncoder();
+        this.passwordEncoder = passwordEncoder;
     }
 
-    public UsuarioModel registerUser(String username, String password){
+    public UsuarioModel registerUser(String username, String password) {
         String senhaCriptografada = passwordEncoder.encode(password);
         UsuarioModel usuario = new UsuarioModel(username, senhaCriptografada);
         return usuarioRepository.save(usuario);
     }
 
-    public Optional<UsuarioModel> findByUsername(String username){
+    public Optional<UsuarioModel> findByUsername(String username) {
         return usuarioRepository.findByUsername(username);
     }
 }
+
