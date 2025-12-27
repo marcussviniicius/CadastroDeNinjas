@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.UUID;
+
 @Entity
 @Table(name = "tb_usuarios")
 @Data
@@ -13,7 +15,7 @@ public class UsuarioModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    private String id;
+    private UUID id;
 
     @Column(unique = true, nullable = false)
     private String username;
@@ -21,8 +23,8 @@ public class UsuarioModel {
     @Column(nullable = false)
     private String password;
 
-    public UsuarioModel(String password, String username) {
-        this.password = password;
+    public UsuarioModel(String username, String password) {
         this.username = username;
+        this.password = password;
     }
 }
